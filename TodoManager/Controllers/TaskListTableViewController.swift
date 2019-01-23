@@ -13,7 +13,7 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
     //protocol のTaskCollectionDelegate が　saved() を持ってるから！書かなきゃエラー
     func saved() {
         print("保存し終わった")
-         self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     //書き方を省略するためだけ
@@ -29,10 +29,6 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
         // taskCollection の中の　delegateを　ここに入れる
         taskCollection.delegate = self
         
-        
-//        userDefaults.set("yamamoto", forKey: "hogehoge")
-//        let hoge =  userDefaults.string(forKey: "hogehoge")
-//        print(hoge)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -41,8 +37,8 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
     }
     
     @IBAction func didTouchAddButton(_ sender: Any) {
-//        tasks.append("aaaaaa")
-//        self.tableView.reloadData()
+        //        tasks.append("aaaaaa")
+        //        self.tableView.reloadData()
         performSegue(withIdentifier: "taskAddSegue", sender: nil)
     }
     // MARK: - Table view data source
@@ -71,9 +67,9 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
     }
     
     // view
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.tableView.reloadData()
-//    }
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        self.tableView.reloadData()
+    //    }
     
     
     /*
@@ -84,17 +80,16 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
      }
      */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            taskCollection.deleteTask(taskNum: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     
     /*
      // Override to support rearranging the table view.

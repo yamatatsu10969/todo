@@ -42,6 +42,11 @@ class TaskCollection {
         save()
     }
     
+    func deleteTask(taskNum: Int){
+        self.tasks.remove(at: taskNum)
+        //delegate?.saved()
+    }
+    
     func save() {
         //シリアル化 → 配列を文字列にするもの　よくあるのはJsonにして、DBに送る
         let data = try! PropertyListEncoder().encode(tasks)
@@ -58,5 +63,7 @@ class TaskCollection {
             self.tasks = tasks
         }
     }
+    
+   
     
 }
