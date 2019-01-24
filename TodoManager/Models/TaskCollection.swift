@@ -42,6 +42,14 @@ class TaskCollection {
         save()
     }
     
+    func editTask(task: Task,indexPath: Int) {
+        
+        //task.title = title
+        //task.descriptin = description
+        self.tasks[indexPath] = task
+        save()
+    }
+    
     func deleteTask(taskNum: Int){
         self.tasks.remove(at: taskNum)
         //delegate?.saved()
