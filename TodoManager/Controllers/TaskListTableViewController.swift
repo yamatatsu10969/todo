@@ -106,14 +106,27 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        guard let identifier = segue.identifier else {
+            return
+        }
+        if identifier == "editTodoSegue" {
+            let taskVC = segue.destination as! taskViewController
+            if let indexPathRow = self.tableView.indexPathForSelectedRow?.row{
+                taskVC.indexPath = indexPathRow
+                taskVC.editTask = taskCollection.tasks[indexPathRow]
+            }
+//            let tmpTask = taskCollection.tasks[(self.tableView.indexPathForSelectedRow?.row)!]
+//            taskVC.editText = tmpTask.title
+        }
+        
      }
-     */
+    
     
 }

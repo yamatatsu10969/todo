@@ -12,11 +12,20 @@ class taskViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     
+    var editTask:Task?
+    var indexPath:Int?
+    
     //書き方を省略するためだけ 
     let taskCollection = TaskCollection.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let tmpText = self.editTask?.title {
+            self .titleTextField.text = tmpText
+            //navigationItem を編集する
+            self.navigationItem.title = "edit Task"
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -31,7 +40,19 @@ class taskViewController: UIViewController {
             return
         }
         
-        taskCollection.addTask(title: title)
+        //編集かどうかの判断
+        if let selectedIndexPath = self.indexPath {
+            //taskCollection.tasks[selectedIndexPath] = title
+            if let task = editTask {
+                task.title = title
+                taskCollection.editTask(task: task, indexPath: selectedIndexPath)
+            }
+            
+        } else {
+            taskCollection.addTask(title: title)
+        }
+        
+        
         self.navigationController?.popViewController(animated: true)
     }
     
