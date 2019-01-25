@@ -21,7 +21,7 @@ class taskViewController: UIViewController , UITextViewDelegate{
     
     //
     @IBAction func showActivityView(_ sender: UIBarButtonItem) {
-        let controller = UIActivityViewController(activityItems: [titleTextField.text!], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [descriptionTextView.text!], applicationActivities: nil)
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -38,11 +38,17 @@ class taskViewController: UIViewController , UITextViewDelegate{
             descriptionTextView.text = String(beforeStr[start...end])
         }
         
+        showCountText()
+        //countLabel.text = String(descriptionTextView.text.count)
+    }
+    
+    func showCountText(){
         countLabel.text = String(descriptionTextView.text.count)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showCountText()
         
         //文字数制限のため
         descriptionTextView.delegate = self
@@ -94,6 +100,11 @@ class taskViewController: UIViewController , UITextViewDelegate{
         
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //textView以外を触ったら、キーボードを消す
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func showAlert(_ text: String){
