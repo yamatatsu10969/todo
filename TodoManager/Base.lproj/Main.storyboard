@@ -63,25 +63,39 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトルを入力..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="67v-A2-cVR">
                                 <rect key="frame" x="30" y="109" width="315" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-Dm-bFP">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bNn-Ui-8TZ"/>
                                     <barButtonItem systemItem="action" id="wdT-Gl-oIP">
                                         <connections>
                                             <action selector="showActivityView:" destination="qtR-sd-YhT" id="9Oz-GS-qXn"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qWE-of-rVg"/>
                                 </items>
                             </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ea-EL-GpM">
+                                <rect key="frame" x="30" y="175" width="315" height="128"/>
+                                <color key="backgroundColor" red="0.22775702823067087" green="0.79664045728834509" blue="0.98883229494094849" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="5OS-4T-MfX"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="67v-A2-cVR" firstAttribute="leading" secondItem="imv-zb-eap" secondAttribute="leading" constant="30" id="1KE-nC-m7P"/>
+                            <constraint firstItem="imv-zb-eap" firstAttribute="trailing" secondItem="6Ea-EL-GpM" secondAttribute="trailing" constant="30" id="5Ja-K7-OaG"/>
                             <constraint firstItem="ROk-Dm-bFP" firstAttribute="bottom" secondItem="imv-zb-eap" secondAttribute="bottom" id="5qR-sL-rWp"/>
+                            <constraint firstItem="6Ea-EL-GpM" firstAttribute="top" secondItem="67v-A2-cVR" secondAttribute="bottom" constant="36" id="FsP-bZ-VkJ"/>
                             <constraint firstItem="67v-A2-cVR" firstAttribute="top" secondItem="imv-zb-eap" secondAttribute="top" constant="45" id="fJR-cK-VNy"/>
+                            <constraint firstItem="6Ea-EL-GpM" firstAttribute="leading" secondItem="imv-zb-eap" secondAttribute="leading" constant="30" id="gkY-g1-VKd"/>
                             <constraint firstItem="imv-zb-eap" firstAttribute="trailing" secondItem="67v-A2-cVR" secondAttribute="trailing" constant="30" id="hwE-cV-RJF"/>
                             <constraint firstItem="ROk-Dm-bFP" firstAttribute="leading" secondItem="oS6-Wc-aK4" secondAttribute="leading" id="jVI-Yo-v4F"/>
                             <constraint firstItem="ROk-Dm-bFP" firstAttribute="centerX" secondItem="67v-A2-cVR" secondAttribute="centerX" id="sKY-gB-gr9"/>
@@ -101,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwg-ft-oC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="145"/>
+            <point key="canvasLocation" x="1208.8" y="144.3778110944528"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qrd-md-mef">
