@@ -8,9 +8,10 @@
 
 import UIKit
 
-class taskViewController: UIViewController {
+class taskViewController: UIViewController , UITextViewDelegate{
 
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var editTask:Task?
     var indexPath:Int?
@@ -24,8 +25,29 @@ class taskViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var countLabel: UILabel!
+    
+    func textViewDidChange(_ descriptionTextView:UITextView){
+        let beforeStr: String = descriptionTextView.text // 文字列をあらかじめ取得しておく
+        //文字数制限は140字まで　twitterの仕様　英語はもっと多いらしい。
+        if descriptionTextView.text.count > 139 { // 139字を超えた時
+            // 以下，範囲指定する
+            let zero = beforeStr.startIndex
+            let start = beforeStr.index(zero, offsetBy: 0)
+            let end = beforeStr.index(zero, offsetBy: 139)
+            descriptionTextView.text = String(beforeStr[start...end])
+        }
+        
+        countLabel.text = String(descriptionTextView.text.count)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //文字数制限のため
+        descriptionTextView.delegate = self
+        
+        countLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 18, weight: UIFont.Weight.regular)
         
         if let tmpText = self.editTask?.title {
             self .titleTextField.text = tmpText

@@ -79,20 +79,39 @@
                                 </items>
                             </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ea-EL-GpM">
-                                <rect key="frame" x="30" y="175" width="315" height="128"/>
+                                <rect key="frame" x="30" y="175" width="315" height="100"/>
                                 <color key="backgroundColor" red="0.22775702823067087" green="0.79664045728834509" blue="0.98883229494094849" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="5OS-4T-MfX"/>
+                                    <constraint firstAttribute="height" constant="100" id="5OS-4T-MfX"/>
                                 </constraints>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-Uk-xay">
+                                <rect key="frame" x="155.5" y="320" width="64.5" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcz-gn-n9z">
+                                        <rect key="frame" x="0.0" y="0.0" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAk-Xa-vc2">
+                                        <rect key="frame" x="30.5" y="0.0" width="34" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="67v-A2-cVR" firstAttribute="leading" secondItem="imv-zb-eap" secondAttribute="leading" constant="30" id="1KE-nC-m7P"/>
                             <constraint firstItem="imv-zb-eap" firstAttribute="trailing" secondItem="6Ea-EL-GpM" secondAttribute="trailing" constant="30" id="5Ja-K7-OaG"/>
                             <constraint firstItem="ROk-Dm-bFP" firstAttribute="bottom" secondItem="imv-zb-eap" secondAttribute="bottom" id="5qR-sL-rWp"/>
+                            <constraint firstItem="SSb-Uk-xay" firstAttribute="centerX" secondItem="oS6-Wc-aK4" secondAttribute="centerX" id="9Bd-bf-2Pd"/>
+                            <constraint firstItem="SSb-Uk-xay" firstAttribute="top" secondItem="6Ea-EL-GpM" secondAttribute="bottom" constant="45" id="Fdg-2D-eDi"/>
                             <constraint firstItem="6Ea-EL-GpM" firstAttribute="top" secondItem="67v-A2-cVR" secondAttribute="bottom" constant="36" id="FsP-bZ-VkJ"/>
                             <constraint firstItem="67v-A2-cVR" firstAttribute="top" secondItem="imv-zb-eap" secondAttribute="top" constant="45" id="fJR-cK-VNy"/>
                             <constraint firstItem="6Ea-EL-GpM" firstAttribute="leading" secondItem="imv-zb-eap" secondAttribute="leading" constant="30" id="gkY-g1-VKd"/>
@@ -110,6 +129,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countLabel" destination="Wcz-gn-n9z" id="LrL-EP-K2c"/>
+                        <outlet property="descriptionTextView" destination="6Ea-EL-GpM" id="Nwg-3Q-qwZ"/>
                         <outlet property="titleTextField" destination="67v-A2-cVR" id="Hht-Wy-hfx"/>
                     </connections>
                 </viewController>
