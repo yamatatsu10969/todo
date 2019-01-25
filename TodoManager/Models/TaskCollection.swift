@@ -34,10 +34,18 @@ class TaskCollection {
     
     var tasks: [Task] = []
     
+    func addTask(title: String, description: String) {
+        let task = Task()
+        task.title = title
+        task.description = description
+        //task.descriptin = description
+        self.tasks.append(task)
+        save()
+    }
+    
     func addTask(title: String) {
         let task = Task()
         task.title = title
-        //task.descriptin = description
         self.tasks.append(task)
         save()
     }

@@ -49,8 +49,11 @@ class taskViewController: UIViewController , UITextViewDelegate{
         
         countLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 18, weight: UIFont.Weight.regular)
         
-        if let tmpText = self.editTask?.title {
-            self .titleTextField.text = tmpText
+        if let tmpTitle = self.editTask?.title {
+            self .titleTextField.text = tmpTitle
+            if let tmpDescription = self.editTask?.description {
+                self.descriptionTextView.text = tmpDescription
+            }
             //navigationItem を編集する
             self.navigationItem.title = "Edit Task"
         }
@@ -63,6 +66,7 @@ class taskViewController: UIViewController , UITextViewDelegate{
         guard let title = titleTextField.text else {
             return
         }
+        
         if title.isEmpty {
             showAlert("タイトルを入力してください。")
             return
@@ -73,11 +77,19 @@ class taskViewController: UIViewController , UITextViewDelegate{
             //taskCollection.tasks[selectedIndexPath] = title
             if let task = editTask {
                 task.title = title
-                taskCollection.editTask(task: task, indexPath: selectedIndexPath)
+                if let description = descriptionTextView.text {
+                    task.description = description
+                }
+                    taskCollection.editTask(task: task, indexPath: selectedIndexPath)
+                
             }
             
         } else {
-            taskCollection.addTask(title: title)
+            if let description = descriptionTextView.text {
+                taskCollection.addTask(title: title,description: description)
+            } else {
+                taskCollection.addTask(title: title)
+            }
         }
         
         
