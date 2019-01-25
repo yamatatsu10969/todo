@@ -18,13 +18,19 @@ class taskViewController: UIViewController {
     //書き方を省略するためだけ 
     let taskCollection = TaskCollection.shared
     
+    //
+    @IBAction func showActivityView(_ sender: UIBarButtonItem) {
+        let controller = UIActivityViewController(activityItems: [titleTextField.text!], applicationActivities: nil)
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let tmpText = self.editTask?.title {
             self .titleTextField.text = tmpText
             //navigationItem を編集する
-            self.navigationItem.title = "edit Task"
+            self.navigationItem.title = "Edit Task"
         }
 
         // Do any additional setup after loading the view.

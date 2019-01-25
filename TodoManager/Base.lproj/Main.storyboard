@@ -66,12 +66,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-Dm-bFP">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="wdT-Gl-oIP">
+                                        <connections>
+                                            <action selector="showActivityView:" destination="qtR-sd-YhT" id="9Oz-GS-qXn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="67v-A2-cVR" firstAttribute="leading" secondItem="imv-zb-eap" secondAttribute="leading" constant="30" id="1KE-nC-m7P"/>
+                            <constraint firstItem="ROk-Dm-bFP" firstAttribute="bottom" secondItem="imv-zb-eap" secondAttribute="bottom" id="5qR-sL-rWp"/>
                             <constraint firstItem="67v-A2-cVR" firstAttribute="top" secondItem="imv-zb-eap" secondAttribute="top" constant="45" id="fJR-cK-VNy"/>
                             <constraint firstItem="imv-zb-eap" firstAttribute="trailing" secondItem="67v-A2-cVR" secondAttribute="trailing" constant="30" id="hwE-cV-RJF"/>
+                            <constraint firstItem="ROk-Dm-bFP" firstAttribute="leading" secondItem="oS6-Wc-aK4" secondAttribute="leading" id="jVI-Yo-v4F"/>
+                            <constraint firstItem="ROk-Dm-bFP" firstAttribute="centerX" secondItem="67v-A2-cVR" secondAttribute="centerX" id="sKY-gB-gr9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="imv-zb-eap"/>
                     </view>
