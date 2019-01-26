@@ -57,11 +57,11 @@ class taskViewController: UIViewController , UITextViewDelegate{
         
         if let tmpTitle = self.editTask?.title {
             self .titleTextField.text = tmpTitle
-            if let tmpDescription = self.editTask?.description {
-                self.descriptionTextView.text = tmpDescription
-            }
             //navigationItem を編集する
             self.navigationItem.title = "Edit Task"
+        }
+        if let tmpDescription = self.editTask?.description {
+            self.descriptionTextView.text = tmpDescription
         }
 
         // Do any additional setup after loading the view.

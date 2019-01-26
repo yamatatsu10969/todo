@@ -8,7 +8,7 @@
 
 import Foundation
 
-// protocol は interface とか abstract 見たなもの
+// protocol は interface とか abstract みたいなもの
 // 以下では必ずsaved ()を実装してください！となる。
 protocol TaskCollectionDelegate: class {
     func saved()

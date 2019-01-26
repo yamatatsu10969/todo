@@ -63,6 +63,7 @@ class TaskListTableViewController: UITableViewController, TaskCollectionDelegate
         cell.textLabel?.text = taskCollection.tasks[indexPath.row].title
         
         
+        
         return cell
     }
     
